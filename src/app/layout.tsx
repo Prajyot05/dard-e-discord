@@ -35,6 +35,7 @@ export default function RootLayout({
             `${font.className} antialiased`,
             "bg-white dark:bg-[#313338]"
           )}
+          suppressHydrationWarning
         >
           <ThemeProvider
             attribute="class"
