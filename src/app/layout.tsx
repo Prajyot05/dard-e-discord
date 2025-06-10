@@ -2,16 +2,10 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
 
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { cn } from "@/lib/utils";
+import { ModalProvider } from "@/components/providers/modal-provider";
 
 const font = Open_Sans({
   subsets: ["latin"],
@@ -33,7 +27,7 @@ export default function RootLayout({
         <body
           className={cn(
             `${font.className} antialiased`,
-            "bg-white dark:bg-[#313338]"
+            "bg-white dark:bg-[#1A1A1E]"
           )}
           suppressHydrationWarning
         >
@@ -43,6 +37,7 @@ export default function RootLayout({
             enableSystem
             storageKey="dard-e-discord-theme"
           >
+            <ModalProvider />
             {children}
           </ThemeProvider>
         </body>
