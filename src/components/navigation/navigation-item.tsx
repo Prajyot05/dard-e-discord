@@ -33,7 +33,7 @@ export function NavigationItem({ id, imageUrl, name }: NavigationItemProps) {
         />
         <div
           className={cn(
-            "relative group flex mx-3 h-[42px] w-[42px] rounded-[16px] transition-all overflow-hidden",
+            "relative group flex mx-4 h-[40px] w-[40px] rounded-[16px] transition-all overflow-hidden",
             params?.serverId === id && "bg-primary/10 text-primary"
           )}
         >

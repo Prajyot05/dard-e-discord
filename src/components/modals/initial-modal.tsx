@@ -67,7 +67,7 @@ export default function InitialModal() {
 
   return (
     <Dialog open>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
+      <DialogContent className="bg-white dark:bg-accent text-accent-foreground p-0 overflow-hidden">
         {/* Header */}
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">
@@ -88,7 +88,7 @@ export default function InitialModal() {
                   control={form.control}
                   name="imageUrl"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="text-accent-foreground">
                       <FormControl>
                         <FileUpload
                           endpoint="serverImage"
@@ -104,15 +104,15 @@ export default function InitialModal() {
                 control={form.control}
                 name="name"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                  <FormItem className="text-accent-foreground">
+                    <FormLabel className="uppercase text-xs font-bold">
                       Server Name
                     </FormLabel>
                     <FormControl>
                       <Input
                         disabled={isLoading}
                         placeholder="Enter a server name"
-                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 placeholder:text-accent-foreground focus-visible:ring-offset-0"
                         {...field}
                       />
                     </FormControl>
