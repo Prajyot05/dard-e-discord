@@ -2,7 +2,6 @@
 
 import { UploadDropzone } from "@/lib/uploadthing";
 import Image from "next/image";
-import { Button } from "./ui/button";
 import { X } from "lucide-react";
 
 interface FileUploadProps {

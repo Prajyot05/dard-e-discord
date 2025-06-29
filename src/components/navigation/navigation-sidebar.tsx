@@ -1,7 +1,6 @@
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
-import { Separator } from "../ui/separator";
 import { CreateServer } from "./navigation-action";
 import { ModeToggle } from "../mode-toggle";
 import { UserButton } from "@clerk/nextjs";

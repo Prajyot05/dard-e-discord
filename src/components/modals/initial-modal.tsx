@@ -121,7 +121,7 @@ export default function InitialModal() {
                 )}
               />
             </div>
-            <DialogFooter className="flex bg-gray-100 px-6 py-4">
+            <DialogFooter className="flex bg-muted px-6 py-4">
               <Button disabled={isLoading} variant="primary">
                 Create
               </Button>

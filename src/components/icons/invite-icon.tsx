@@ -1,9 +1,10 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
-interface InviteIconProps extends React.SVGProps<SVGSVGElement> {}
-
-const InviteIcon: React.FC<InviteIconProps> = ({ className, ...props }) => {
+const InviteIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({
+  className,
+  ...props
+}) => {
   return (
     <svg
       viewBox="0 0 24 24"

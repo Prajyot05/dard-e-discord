@@ -129,3 +129,8 @@ body,
 :root {
   height: 100%;
 }
+
+*::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}

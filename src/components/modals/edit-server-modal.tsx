@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -33,11 +33,12 @@ const formSchema = z.object({
   imageUrl: z.string().min(1, { message: "Server image is required." }),
 });
 
-export function CreateServerModal() {
-  const { isOpen, onClose, type } = useModal();
+export function EditServerModal() {
+  const { isOpen, onClose, type, data } = useModal();
   const router = useRouter();
 
-  const isModalOpen = isOpen && type === "createServer";
+  const isModalOpen = isOpen && type === "editServer";
+  const { server } = data;
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -47,11 +48,18 @@ export function CreateServerModal() {
     },
   });
 
+  useEffect(() => {
+    if (server) {
+      form.setValue("name", server.name);
+      form.setValue("imageUrl", server.imageUrl);
+    }
+  }, [server, form]);
+
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await axios.post("/api/servers", values);
+      await axios.patch(`/api/servers/${server?.id}`, values);
 
       form.reset();
       router.refresh();
@@ -71,7 +79,7 @@ export function CreateServerModal() {
       <DialogContent className="bg-white dark:bg-accent text-accent-foreground p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">
-            Customize your server
+            Server Settings
           </DialogTitle>
           <DialogDescription className="text-center">
             Give your server a personality with a name and an image. You can
@@ -122,7 +130,7 @@ export function CreateServerModal() {
             </div>
             <DialogFooter className="bg-muted px-6 py-4">
               <Button disabled={isLoading} variant="primary">
-                Create
+                Save Changes
               </Button>
             </DialogFooter>
           </form>

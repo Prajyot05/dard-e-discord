@@ -14,8 +14,8 @@ export function CreateServer() {
           onClick={() => onOpen("createServer")}
           className="group flex items-center"
         >
-          <div className="flex mx-4 h-[40px] w-[40px] rounded-[16px] transition-all overflow-hidden items-center justify-center bg-background dark:bg-neutral-700 hover:bg-indigo-400">
-            <PlusIcon className="text-white" size={20} />
+          <div className="flex mx-4 h-[40px] w-[40px] rounded-[16px] transition-all overflow-hidden items-center justify-center bg-accent hover:bg-indigo-400">
+            <PlusIcon className="text-accent-foreground" size={20} />
           </div>
         </button>
       </ActionTooltip>
