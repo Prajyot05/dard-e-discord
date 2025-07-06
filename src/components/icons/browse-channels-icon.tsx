@@ -22,9 +22,9 @@ const BrowseChannelsIcon: React.FC<BrowseChannelsIconProps> = ({
       {...props}
     >
       <path
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="M18.5 23c.88 0 1.7-.25 2.4-.69l1.4 1.4a1 1 0 0 0 1.4-1.42l-1.39-1.4A4.5 4.5 0 1 0 18.5 23Zm0-2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"
-        clip-rule="evenodd"
+        clipRule="evenodd"
         fill="currentColor"
         className=""
       ></path>

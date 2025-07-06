@@ -36,7 +36,7 @@ const ServerIdLayout = async ({ children, params }: ServerIdLayoutProps) => {
         <ServerSidebar serverId={serverId} />
       </div>
       {/* 303px + 24px padding */}
-      <main className="h-full md:pl-[327px] px-6 py-[13px]">{children}</main>
+      <main className="h-full md:pl-[300px]">{children}</main>
     </div>
   );
 };
