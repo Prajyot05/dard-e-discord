@@ -51,7 +51,7 @@ export function MediaRoom({ chatId, video, audio }: MediaRoomProps) {
     return () => {
       roomInstance.disconnect();
     };
-  }, [user?.firstName, chatId]);
+  }, [user?.firstName, chatId, roomInstance]);
 
   if (token === "")
     return (

@@ -14,6 +14,18 @@ const eslintConfig = [
   {
     ignores: [".next/", "node_modules/", "dist/", "src/generated"],
   },
+  {
+    // Turn off no-explicit-any
+    files: ["**/*.ts", "**/*.tsx"],
+    languageOptions: {
+      parserOptions: {
+        project: "./tsconfig.json",
+      },
+    },
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+    },
+  },
 ];
 
 export default eslintConfig;
