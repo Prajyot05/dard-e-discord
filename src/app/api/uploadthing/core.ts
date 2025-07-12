@@ -13,10 +13,22 @@ const handleAuth = async () => {
 export const ourFileRouter = {
   serverImage: f({ image: { maxFileSize: "4MB", maxFileCount: 1 } })
     .middleware(() => handleAuth())
-    .onUploadComplete(() => {}),
+    .onUploadComplete(({ file }) => {
+      return {
+        url: file.ufsUrl, // permanent file URL
+        name: file.name, // original file name (e.g., "photo.jpg")
+        type: file.type, // MIME type (e.g., "image/jpeg")
+      };
+    }),
   messageFile: f(["image", "pdf", "video"])
     .middleware(() => handleAuth())
-    .onUploadComplete(() => {}),
+    .onUploadComplete(({ file }) => {
+      return {
+        url: file.ufsUrl,
+        name: file.name,
+        type: file.type,
+      };
+    }),
 } satisfies FileRouter;
 
 export type OurFileRouter = typeof ourFileRouter;

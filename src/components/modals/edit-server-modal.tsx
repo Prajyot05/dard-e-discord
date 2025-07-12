@@ -30,7 +30,11 @@ import FileUpload from "../file-upload";
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "Server name is required." }),
-  imageUrl: z.string().min(1, { message: "Server image is required." }),
+  imageUrl: z.object({
+    url: z.string().url(),
+    name: z.string().optional(),
+    type: z.string().optional(),
+  }),
 });
 
 export function EditServerModal() {
@@ -40,18 +44,22 @@ export function EditServerModal() {
   const isModalOpen = isOpen && type === "editServer";
   const { server } = data;
 
-  const form = useForm({
+  const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      imageUrl: "",
+      imageUrl: undefined,
     },
   });
 
   useEffect(() => {
     if (server) {
       form.setValue("name", server.name);
-      form.setValue("imageUrl", server.imageUrl);
+      form.setValue("imageUrl", {
+        url: server.imageUrl,
+        name: "server-image",
+        type: "image/*",
+      });
     }
   }, [server, form]);
 
@@ -59,7 +67,10 @@ export function EditServerModal() {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await axios.patch(`/api/servers/${server?.id}`, values);
+      await axios.patch(`/api/servers/${server?.id}`, {
+        name: values.name,
+        imageUrl: values.imageUrl.url,
+      });
 
       form.reset();
       router.refresh();
