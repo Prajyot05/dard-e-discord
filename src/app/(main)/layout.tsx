@@ -9,7 +9,7 @@ export default async function MainLayout({
   return (
     <div className="h-full">
       <div className="h-8 flex justify-center fixed top-0 w-full text-accent-foreground border-b border-sidebar-border bg-[#f2f3f5] dark:bg-[#121214]">
-        TODO
+        Dard-e-Discord
       </div>
       <div className="pt-8 hidden md:flex h-full w-18 z-30 flex-col fixed inset-y-0">
         <NavigationSidebar />
