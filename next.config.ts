@@ -1,10 +1,16 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
   images: {
-    domains: ["872ooz77rq.ufs.sh"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**', // Wildcard to allow all domains
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
