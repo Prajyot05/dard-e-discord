@@ -51,6 +51,9 @@
     "zod": "^3.25.56",
     "zustand": "^5.0.5"
   },
+  "overrides": {
+    "effect": "^3.17.7"
+  },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
